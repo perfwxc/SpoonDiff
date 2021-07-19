@@ -20,8 +20,19 @@ import spoon.reflect.declaration.CtClass;
  * @author Matias Martinez, matias.martinez@inria.fr
  *
  */
-public class DiffTest {
+public class OldDiffTest {
 	private final String newline = System.getProperty("line.separator");
+
+	@Test
+	public void testDiff() throws Exception {
+		File fl = new File("/Users/happy/Develop/Projects/Java/CloneDiffAnalyzer/files/diff/A.java");
+		File fr = new File("/Users/happy/Develop/Projects/Java/CloneDiffAnalyzer/files/diff/B.java");
+
+		AstComparator diff = new AstComparator();
+		Diff result = diff.compare(fl, fr);
+		System.out.println(result.toString());
+	}
+
 
 	@Test
 	public void testToString() throws Exception {
